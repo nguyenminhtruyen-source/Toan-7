@@ -1,0 +1,2742 @@
+% =========================================================
+% GÓI GIAOVIEN-TOAN.STY — STYLE CHUẨN CHO SÁCH VÀ TÀI LIỆU DẠY HỌC TOÁN THCS
+% Tác giả: Truyền Nguyễn — Chuẩn hóa và tái cấu trúc: ChatGPT (2025/10/19)
+% Dành cho class: book (phù hợp nhiều chương, nhiều khối lớp)
+% =========================================================
+
+\ProvidesPackage{my-style}[2025/10/17 Style chuẩn giáo viên Toán THCS - dành cho book class]
+
+%% =========================================================
+%% ========== I. KHAI BÁO GÓI & CẤU HÌNH CƠ BẢN ==========
+%% =========================================================
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T5]{fontenc}
+\RequirePackage[vietnamese]{babel}
+\RequirePackage{amsmath,amssymb,amsthm,mathtools}
+\RequirePackage{geometry}
+\geometry{top=1cm,bottom=1.5cm,left=1.3cm,right=1cm}
+\RequirePackage{graphicx,tikz,pgffor,multicol}
+\RequirePackage[dvipsnames,table]{xcolor}
+\RequirePackage{enumitem}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{setspace}
+\RequirePackage{lastpage}
+\setstretch{0.7}
+\usetikzlibrary{arrows.meta, shapes, calc, angles, quotes, patterns, patterns.meta}
+\RequirePackage{float, pgfplots, mathrsfs, fancyhdr, tabularx, subfiles, tkz-euclide, tocloft, makecell, xparse, pgfmath, xfp}
+\pgfplotsset{compat=1.18}
+\RequirePackage{xparse}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc,angles,quotes}
+\usepackage{tkz-euclide}
+%\usepackage[default]{comfortaa}
+
+% ==============================
+% Các gói cần thiết
+% ==============================
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{stringstrings,pgffor}
+
+% ===== GEOMETRY SYMBOL KIT =====
+\usetikzlibrary{decorations.markings,angles,quotes,calc}
+
+%% =========================================================
+%% ========== II. MÀU CHỦ ĐẠO (TẬP TRUNG TOÀN BỘ) ==========
+%% =========================================================
+%-----Màu Pastel
+% ===== Pastel palette (coolors) =====
+\definecolor{PastelGreenDark}{HTML}{5D7B6F}
+\definecolor{PastelGreen}{HTML}{A4C3A2}
+\definecolor{PastelGreenLight}{HTML}{B0D4B8}
+\definecolor{PastelBeige}{HTML}{EAE7D6}
+\definecolor{PastelMint}{HTML}{D7F9FA}
+
+\definecolor{PastelCoral}{HTML}{F28076}
+\definecolor{PastelPink}{HTML}{FFB6AF}
+\definecolor{PastelCream}{HTML}{FAE0C7}
+\definecolor{PastelPeach}{HTML}{FBC193}
+\definecolor{PastelTeal}{HTML}{4EB09B}
+% ===== Palette mới =====
+\definecolor{PBlack}{HTML}{010101}   % viền / chữ
+\definecolor{PGreenDark}{HTML}{446B50} % bế mạc
+\definecolor{PGreen}{HTML}{64A587}     % văn nghệ
+\definecolor{PPeach}{HTML}{F7C0AA}     % khai mạc
+\definecolor{PCoral}{HTML}{F17877}     % nhấn (nếu cần)
+
+
+% --- Màu cho header/footer ---
+\definecolor{eduheader}{RGB}{120,0,120}
+\definecolor{eduline}{RGB}{180,0,150}
+
+% --- Màu cho phần mục lục ---
+\definecolor{mucColor}{RGB}{0,128,128} % xanh ngọc
+\definecolor{mucBoxBG}{HTML}{E0F7FA}   % nền nhạt pastel
+\definecolor{mucBoxLine}{HTML}{009999} % viền đậm hơn nền
+
+
+
+
+% --- Màu cho mục nhỏ ---
+\definecolor{mucBoxBG}{HTML}{E0F7FA}
+\definecolor{mucBoxLine}{HTML}{009999}
+
+% --- Màu cho các box nội dung ---
+% Màu thẻ Ví dụ (hồng)
+% ===== Kiến thức tone lavender pastel =====
+\definecolor{kienthucColor}{HTML}{9A8FBF}   % tím xám dịu
+\definecolor{kienthucBG}{HTML}{FCFBFE}      % nền tím rất rất nhạt
+
+\definecolor{cauLine}{HTML}{E91E63}  % viền hồng đậm
+\definecolor{cauBG}{HTML}{FFFCFD}    % nền hồng rất nhạt
+\definecolor{cauColor}{HTML}{E91E63} % nhãn / chữ "Câu~n" nếu dùng
+\definecolor{chuyColor}{HTML}{FF9800}
+\definecolor{chuyBG}{HTML}{FFF3E0}
+\definecolor{chuyLine}{HTML}{FB8C00}
+\definecolor{tinhchatColor}{HTML}{4CAF50}
+\definecolor{tinhchatBG}{HTML}{E8F5E9}
+\definecolor{tinhchatLine}{HTML}{43A047}
+\definecolor{dinhliColor}{HTML}{9C27B0}
+\definecolor{dinhliBG}{HTML}{F3E5F5}
+\definecolor{dinhliLine}{HTML}{8E24AA}
+\definecolor{dinhnghiaColor}{HTML}{E53935}
+\definecolor{dinhnghiaBG}{HTML}{FFEBEE}
+\definecolor{dinhnghiaLine}{HTML}{C62828}
+\definecolor{viduColor}{HTML}{009688}   % xanh ngọc đậm
+\definecolor{viduBG}{HTML}{E0F2F1}      % xanh ngọc nhạt
+\definecolor{viduLine}{HTML}{009688}    % viền cùng màu tiêu đề
+\definecolor{ghinhoColor}{HTML}{FF9800}   % cam đậm
+\definecolor{ghinhoBG}{HTML}{FFF3E0}      % cam nhạt
+\definecolor{ghinhoLine}{HTML}{FF9800}
+\definecolor{morongColor}{HTML}{3F51B5}   % xanh tím
+\definecolor{morongBG}{HTML}{E8EAF6}      % xanh tím nhạt
+\definecolor{morongLine}{HTML}{3F51B5}
+\definecolor{dhnbBG}{HTML}{E3F2FD}      % Nền xanh nhạt
+\definecolor{dhnbLine}{HTML}{1E88E5}    % Viền xanh đậm
+\definecolor{dhnbColor}{HTML}{1565C0}   % Màu tiêu đề (chìa khóa)
+% --- Màu cho phần, bài, chương ---
+\definecolor{partColor}{RGB}{0,90,200}      % xanh dương đậm
+\definecolor{chapterColor}{RGB}{180,0,40}   % đỏ mận (chương)
+\definecolor{baiColor}{RGB}{0,102,204}      % xanh dương tươi
+\definecolor{baicolor}{RGB}{233,30,99}      % hồng tươi
+\definecolor{phanColor}{RGB}{0,150,136}     % xanh ngọc đậm
+\definecolor{phanBG}{RGB}{224,242,241}      % nền pastel
+\definecolor{luxuryblues}{RGB}{0,102,153}
+\definecolor{luxuryblueDark}{RGB}{15,30,80}  % xanh đậm hơn cho nhãn
+\definecolor{luxuryblueLight}{RGB}{230,235,255} % nền rất nhạt
+\definecolor{doDo}{RGB}{183,28,28} % đỏ đô
+% --- Màu chủ đạo cho mục lục ---
+\definecolor{tocColor}{RGB}{194,24,91}
+
+% Lệnh tạo dấu chấm dài với chiều rộng tùy chỉnh
+\newcommand{\dauchamn}[1][4.5em]{%
+	\makebox[#1][l]{%
+		\leavevmode
+		\leaders\hbox{\raisebox{-0.2ex}{\scalebox{0.6}{$\cdot$}}\hskip 0.15em}\hfill
+	}%
+}
+
+%% =========================================================
+%% ========== III. CẤU HÌNH TRANG, HEADER & FOOTER =========
+%% =========================================================
+
+\setlength{\headheight}{38pt}
+\setlength{\footskip}{15pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+
+% --- Mẫu header/footer chính ---
+\fancypagestyle{mainstyle}{
+	\fancyhf{}
+	\fancyhead[L]{\footnotesize\textcolor{eduheader}{\textit{Biên soạn: \dauchamn[19em]}}}
+	\fancyhead[R]{\footnotesize\textcolor{eduheader}{\textit{TH–THCS}}}
+	\fancyfoot[C]{\small\textcolor{eduheader}{Trang \thepage\ |\ \pageref{LastPage}}}
+	\renewcommand{\headrule}{\vspace{-1.5ex}\makebox[\headwidth]{\color{eduline}\rule{\headwidth}{0.4pt}}}
+	\renewcommand{\footrule}{\vspace{-0.5ex}\makebox[\headwidth]{\color{eduline}\rule{\headwidth}{0.4pt}}}
+}
+
+% --- Trang rỗng (bìa, chương mở đầu) ---
+\fancypagestyle{plainempty}{
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+
+\AtBeginDocument{
+	\fancypagestyle{chapterplain}{
+		\fancyhf{}
+		\renewcommand{\headrulewidth}{0pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
+	\let\ps@plain\ps@chapterplain
+}
+% ĐỊNH NGHĨA KIỂU TRANG SGKSTYLE
+% =============================================================================
+
+% 1. Khai báo biến lưu mã giáo trình (Mặc định để trống)
+\newcommand{\magiaotrinh}{}
+% Lệnh để người dùng nhập mã ở file .tex
+\newcommand{\setmagiaotrinh}[1]{\renewcommand{\magiaotrinh}{#1}}
+
+% 2. Định nghĩa kiểu trang sgkstyle
+\fancypagestyle{sgkstyle}{
+	\fancyhf{}
+	% Header trái: Tên người biên soạn (có dấu chấm lửng)
+	\fancyhead[L]{\footnotesize\textcolor{eduheader}{\textit{Biên soạn: \dauchamn[19em]}}}
+	% Header phải: Cấp học
+	\fancyhead[R]{\footnotesize\textcolor{eduheader}{\textit{TH–THCS}}}
+	
+	% Footer giữa: Trang [số trang] | [mã giáo trình tự nhập]
+	\fancyfoot[C]{\small\textcolor{eduheader}{Trang \thepage\ | \magiaotrinh}}
+	
+	% Đường kẻ Header và Footer
+	\renewcommand{\headrule}{\vspace{-1.5ex}\makebox[\headwidth]{\color{eduline}\rule{\headwidth}{0.4pt}}}
+	\renewcommand{\footrule}{\vspace{-0.5ex}\makebox[\headwidth]{\color{eduline}\rule{\headwidth}{0.4pt}}}
+}
+
+% 3. Cấu hình mặc định khi bắt đầu tài liệu
+\AtBeginDocument{
+	\fancypagestyle{chapterplain}{
+		\fancyhf{}
+		\renewcommand{\headrulewidth}{0pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
+	\let\ps@plain\ps@chapterplain
+	\pagestyle{sgkstyle} % Tự động áp dụng sgkstyle cho toàn bộ tài liệu
+}
+
+%
+% =============================================================================
+% ĐỊNH NGHĨA KIỂU TRANG SGKSTYLE
+% =============================================================================
+
+% 2. Định nghĩa kiểu trang sgkstyle
+\fancypagestyle{baithi}{
+	\fancyhf{}
+	% Header trái: Tên người biên soạn (có dấu chấm lửng)
+	\fancyhead[L]{\footnotesize\textcolor{eduheader}{\textit{Bài làm môn Cơ sở Toán}}}
+	% Header phải: Cấp học
+	\fancyhead[R]{\footnotesize\textcolor{eduheader}{\textit{Thời gian: 90 phút}}}
+	
+	% Footer giữa: Trang [số trang] | [mã giáo trình tự nhập]
+	\fancyfoot[C]{\small\textcolor{eduheader}{Trang \thepage\ | \magiaotrinh}}
+	
+	% Đường kẻ Header và Footer
+	\renewcommand{\headrule}{\vspace{-1.5ex}\makebox[\headwidth]{\color{eduline}\rule{\headwidth}{0.4pt}}}
+	\renewcommand{\footrule}{\vspace{-0.5ex}\makebox[\headwidth]{\color{eduline}\rule{\headwidth}{0.4pt}}}
+}
+
+% 3. Cấu hình mặc định khi bắt đầu tài liệu
+\AtBeginDocument{
+	\fancypagestyle{chapterplain}{
+		\fancyhf{}
+		\renewcommand{\headrulewidth}{0pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
+	\let\ps@plain\ps@chapterplain
+	\pagestyle{baithi} % Tự động áp dụng sgkstyle cho toàn bộ tài liệu
+}
+
+ % =============================================================================
+% MACRO MỚI: TÙY CHỈNH THÔNG TIN TRANG
+% Không ảnh hưởng đến các page style có sẵn
+% =============================================================================
+
+\newcommand{\thongtintrang}[3]{%
+	\fancyhead[L]{%
+		\footnotesize
+		\textcolor{eduheader}{\textit{#1}}%
+	}%
+	\fancyhead[R]{%
+		\footnotesize
+		\textcolor{eduheader}{\textit{#2}}%
+	}%
+	\fancyfoot[C]{%
+		\small
+		\textcolor{eduheader}{Trang \thepage\ | #3}%
+	}%
+}
+
+% =============================================================================
+% HƯỚNG DẪN SỬ DỤNG TRONG FILE NỘI DUNG (.tex)
+% =============================================================================
+% Bước 1: Sau \begin{document}, sử dụng lệnh \setmagiaotrinh để nhập mã.
+	%         Ví dụ: \setmagiaotrinh{VioEdu-Toan6-T1}
+	%
+	% Bước 2: Số trang sẽ tự động hiển thị: Trang 1 | VioEdu-Toan6-T1
+	%
+	% Lưu ý: Nếu muốn đổi mã giữa chừng (ví dụ sang chương mới), 
+	%        chỉ cần gọi lại lệnh \setmagiaotrinh với mã mới.
+	%\setmagiaotrinh{C1B2}
+	%\pagestyle{sgkstyle} =============================================================================
+%% =========================================================
+%% ========== IV. TRANG MỤC LỤC & TIÊU ĐỀ MỤC LỤC =========
+%% =========================================================
+
+\makeatletter
+\renewcommand{\contentsname}{MỤC LỤC}
+
+\renewcommand{\tableofcontents}{%
+	\cleardoublepage
+	\thispagestyle{empty}
+	\begin{center}
+		\begin{tcolorbox}[
+			colback=mucBoxBG,
+			colframe=mucBoxLine,
+			boxrule=0.8pt,
+			rounded corners,
+			width=0.5\textwidth,
+			enhanced,
+			center upper,
+			before skip=1em,after skip=1em,
+			]
+			{\Large\bfseries\textcolor{mucColor!90!black}{\contentsname}}
+		\end{tcolorbox}
+	\end{center}
+	\vspace{1em}
+	\@starttoc{toc}
+	\cleardoublepage
+}
+\makeatother
+
+%% =========================================================
+%% ========== V. CẤU TRÚC TÀI LIỆU: PART / CHƯƠNG =========
+%% =========================================================
+
+\RequirePackage{titlesec}
+
+% ----- Định dạng tiêu đề phần lớn (PART) -----
+\titleformat{\part}[display]
+{\centering\Huge\bfseries\color{partColor}}
+{PHẦN \thepart}
+{0.5em}
+{\MakeUppercase}
+[\vspace{0.8cm}\titlerule]
+
+% ----- Tùy chỉnh hiển thị PART trong mục lục -----
+\makeatletter
+\renewcommand{\l@part}[2]{%
+	\ifnum \c@tocdepth > -2\relax
+	\addpenalty{-\@highpenalty}%
+	\addvspace{2.25em \@plus\p@}%
+	\begingroup
+	\parindent \z@ \rightskip \@pnumwidth
+	\parfillskip -\@pnumwidth
+	\leavevmode
+	{\Large\bfseries\color{partColor}%
+		\textbf{\thepart\quad #1}\hfil\hb@xt@\@pnumwidth{\hss #2}}%
+	\par\nobreak\vskip 1em
+	\endgroup
+	\fi}
+\makeatother
+
+% ----- Bảo đảm trang PART không có header/footer -----
+\makeatletter
+\apptocmd{\@endpart}{\thispagestyle{partpage}}{}{}
+\makeatother
+
+
+%% =========================================================
+%% ========== VI. BỘ ĐẾM & ĐỊNH DẠNG BÀI / PHẦN / MỤC =====
+%% =========================================================
+
+\newcounter{bai}[chapter]
+\newcounter{phan}[bai]
+\newcounter{muc}[phan]
+\newcounter{cau}[phan]
+
+% Bộ đếm phụ cho các box đặc biệt
+\newcounter{chuy}
+\newcounter{tinhchat}
+\newcounter{dinhnghia}
+\newcounter{dinhli}
+\newcounter{vidu}
+\newcounter{ghinho}
+\newcounter{morong}
+\newcounter{dhnb}
+
+% Kiểu hiển thị
+\renewcommand{\thebai}{\arabic{bai}}
+\renewcommand{\thephan}{\arabic{phan}}
+\renewcommand{\themuc}{\Alph{muc}}
+\renewcommand{\thecau}{\arabic{cau}}
+
+
+%% =========================================================
+%% ========== VII. TIÊU ĐỀ CHƯƠNG DẠNG MŨI TÊN ============
+%% =========================================================
+
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+
+% ----- Lệnh hiển thị tiêu đề chương -----
+\newcommand{\tieudechuong}[2]{%
+	\vspace*{0.1cm}
+	\begin{tikzpicture}[baseline=(text.base)]
+		% Mũi tên chính
+		\fill[chapterColor] (-3,0) -- (2.5,0) -- (3,0.45) -- (2.5,0.9) -- (-3,0.9) -- (-2.5,0.45) -- cycle;
+		% Chữ “CHƯƠNG”
+		\node[white, font=\bfseries\LARGE] at (0,0.54) {#1};
+		% Tên chương bên phải
+		\node[
+		anchor=west,
+		font=\bfseries\LARGE,
+		text=chapterColor,
+		text width=0.65\textwidth, % 👈 Giới hạn chiều rộng vùng hiển thị
+		align=left,                % 👈 Cho phép xuống dòng tự nhiên
+		] (text) at (3.7,0.7) {#2};
+		
+	\end{tikzpicture}
+	\vspace{0.1cm}
+}
+
+% ----- Lệnh \chuong -----
+\newcommand{\chuong}[1]{%
+	\refstepcounter{chapter}%
+	\phantomsection
+	\tieudechuong{CHƯƠNG \thechapter}{#1}%
+	\addcontentsline{toc}{chapter}{\textcolor{red}{CHƯƠNG \thechapter. #1}}%
+}
+
+
+%% =========================================================
+%% ========== VIII. TIÊU ĐỀ BÀI — DẠNG MŨI TÊN =============
+%% =========================================================
+
+\newcommand{\bai}[1]{%
+	\refstepcounter{bai}%
+	\phantomsection
+	\begin{center}
+		\begin{tikzpicture}[baseline=(text.base)]
+			% Mũi tên nền
+			\fill[baiColor] (-2,0) -- (2.5,0) -- (2,0.45) -- (2.5,0.9) -- (-2,0.9) -- (-1.5,0.45) -- cycle;
+			% Tên bài và số
+			\node[white, font=\bfseries\Large] at (0.1,0.5)
+			{\faScroll\; BÀI~\thebai};
+			% Tên bài (phía phải)
+			\node[anchor=west, font=\bfseries\Large, text=baiColor] (text)
+			at (3,0.5) {#1};
+		\end{tikzpicture}
+	\end{center}
+	\vspace{0.09cm}
+	\addcontentsline{toc}{section}{\textcolor{baicolor}{Bài \thebai. #1}}%
+}
+
+%% =========================================================
+%% ========== IX. TIÊU CHƯƠNG MỚI ============
+%% =========================================================
+% ======================= MÀU SẮC =============================
+
+\definecolor{chapterTeal}{HTML}{007C7A}
+\definecolor{chapterTealLight}{HTML}{A7D5D3}
+
+% ======================= FONT SCRIPT KHÔNG LỖI =======================
+
+\newcommand{\chapterScript}[1]{%
+	{\fontfamily{qpl}\selectfont\fontsize{24}{26}\selectfont #1}%
+}
+
+% ======================= 3 SỌC XIÊN =======================
+
+\newcommand{\chapstripes}{%
+	\fill[chapterTeal] (0,0) --
+	(0.35,0.7) --
+	(0.85,0.7) --
+	(0.5,0) -- cycle;
+	\begin{scope}[xshift=0.75cm]
+		\fill[chapterTealLight] (0,0) --
+		(0.35,0.7) --
+		(0.85,0.7) --
+		(0.5,0) -- cycle;
+	\end{scope}
+	\begin{scope}[xshift=1.5cm]
+		\fill[chapterTealLight] (0,0) --
+		(0.35,0.7) --
+		(0.85,0.7) --
+		(0.5,0) -- cycle;
+	\end{scope}
+}
+
+% ======================= VẼ TIÊU ĐỀ CHƯƠNG =======================
+
+\newcommand{\DrawChapterHeader}[2]{%
+	\begin{tikzpicture}[baseline]
+		
+		% độ xéo đuôi hình bình hành
+		\def\Slant{0.35}
+		
+		% hình bình hành kéo dài qua trái 3cm
+		\fill[chapterTeal]
+		(-3,0.1) --
+		(6.45,0.1) --
+		({6.45+\Slant},0.81) --
+		(-3,0.81) -- cycle;
+		
+		% 3 sọc xiên bên phải
+		\begin{scope}[shift={(6.7,0.1)}]
+			\chapstripes
+		\end{scope}
+		
+		% chữ "Chương ..."
+		\node[
+		anchor=east,
+		text=chapterTeal
+		] at (14,0.6)
+		{\chapterScript{#1}};
+		
+		% chữ tiêu đề
+		\node[
+		anchor=east,
+		font=\bfseries\LARGE,
+		text=chapterTeal
+		] at (14,-1.4)
+		{#2};
+		
+	\end{tikzpicture}
+}
+
+% ======================= COUNTER VÀ MACRO GỌN =======================
+
+\newcounter{mychapter}
+
+\newcounter{baiso}
+\setcounter{baiso}{0}
+
+\newcommand{\newchuong}[1]{%
+	\stepcounter{mychapter}%
+	\setcounter{baiso}{0}% <-- THÊM DÒNG NÀY
+	\DrawChapterHeader{\textbf{\textit{Chủ đề \themychapter}}}{\fontsize{25pt}{20pt}\sffamily\bfseries{\textcolor{violet}{\textbf{#1}}}%
+	\par\vspace{0.5cm}%
+}}
+
+% ======================= COUNTER VÀ MACRO GỌN =======================
+
+\newcommand{\newchude}[1]{%
+	%\stepcounter{mychapter}%
+	%\setcounter{baiso}{0}% <-- THÊM DÒNG NÀY
+	\DrawChapterHeader{\textbf{\textit{Chủ đề }}}{\fontsize{25pt}{20pt}\sffamily\bfseries{\textcolor{violet}{\textbf{#1}}}%
+	\par\vspace{0.5cm}%
+}}
+
+%% =========================================================
+%% ========== IX. TIÊU BÀI MỚI ============
+%% =========================================================
+% ======================= MÀU SẮC =============================
+\definecolor{redTitle}{HTML}{D30000}
+
+\newcommand{\newbai}[1]{%
+	\stepcounter{baiso}%
+	\begin{center}
+		\begin{tikzpicture}[line join=round, line cap=round]
+			\coordinate (hex) at (0,0);
+			
+			\begin{scope}[shift={(-1.75,-0.59)}]
+				\node[
+				regular polygon,
+				regular polygon sides=6,
+				minimum size=1.3cm,
+				fill=redTitle,
+				rotate=30,
+				inner sep=0pt,
+				text=white,
+				font=\bfseries\Large
+				] (hexShape) {};
+				\node[
+				text=white,
+				font=\bfseries\Large
+				] at (hexShape.center) {\thebaiso};
+			\end{scope}
+			
+			\node[anchor=east,text=redTitle,font=\bfseries\itshape\Large]
+			at ($(hex.west)+(-2.65,-0.53)$) {Bài};
+			
+			\node[anchor=west,text=redTitle,font=\bfseries\large]
+			at ($(hex.east)+(-0.5,-0.37)$) {#1};
+			
+			\fill[chapterTeal] ($(hex.west)+(-4.5,-0.95)$) circle (3pt);
+			\draw[line width=2pt,chapterTeal]
+			($(hex.west)+(-4.5,-0.95)$) -- ($(hex.west)+(-2.5,-0.95)$);
+			
+			\fill[chapterTeal] ($(hex.east)+(13,-0.95)$) circle (3pt);
+			\draw[line width=2pt,chapterTeal]
+			($(hex.east)+(-1,-0.95)$) -- ($(hex.east)+(13,-0.95)$);
+			
+			\draw[line width=2pt,chapterTeal]
+			($(hex.south)+(-2.53,-0.939)$) --
+			($(hex.south)+(-1.75,-1.41)$) --
+			($(hex.south)+(-0.969,-0.941)$);
+		\end{tikzpicture}
+	\end{center}
+	\vspace{0.5cm}
+}
+
+\newcommand{\newde}[1]{%
+	\stepcounter{baiso}%
+	\begin{center}
+		\begin{tikzpicture}[line join=round, line cap=round]
+			\coordinate (hex) at (0,0);
+			
+			\begin{scope}[shift={(-1.75,-0.59)}]
+				\node[
+				regular polygon,
+				regular polygon sides=6,
+				minimum size=1.3cm,
+				fill=redTitle,
+				rotate=30,
+				inner sep=0pt,
+				text=white,
+				font=\bfseries\Large
+				] (hexShape) {};
+				\node[
+				text=white,
+				font=\bfseries\Large
+				] at (hexShape.center) {\thebaiso};
+			\end{scope}
+			
+			\node[anchor=east,text=redTitle,font=\bfseries\itshape\Large]
+			at ($(hex.west)+(-2.65,-0.53)$) {ĐỀ};
+			
+			\node[anchor=west,text=redTitle,font=\bfseries\large]
+			at ($(hex.east)+(-0.5,-0.37)$) {#1};
+			
+			\fill[chapterTeal] ($(hex.west)+(-4.5,-0.95)$) circle (3pt);
+			\draw[line width=2pt,chapterTeal]
+			($(hex.west)+(-4.5,-0.95)$) -- ($(hex.west)+(-2.5,-0.95)$);
+			
+			\fill[chapterTeal] ($(hex.east)+(13,-0.95)$) circle (3pt);
+			\draw[line width=2pt,chapterTeal]
+			($(hex.east)+(-1,-0.95)$) -- ($(hex.east)+(13,-0.95)$);
+			
+			\draw[line width=2pt,chapterTeal]
+			($(hex.south)+(-2.53,-0.939)$) --
+			($(hex.south)+(-1.75,-1.41)$) --
+			($(hex.south)+(-0.969,-0.941)$);
+		\end{tikzpicture}
+	\end{center}
+	\vspace{0.5cm}
+}
+
+
+%% =========================================================
+%% ========== IX. TIÊU ĐỀ PHẦN — KHUNG CHỮ NHẬT ============
+%% =========================================================
+
+\newcommand{\tieudephan}[2]{%
+	\vspace*{0.07cm}
+	\begin{flushleft}
+		\begin{tikzpicture}[baseline=(text.base)]
+			% Khung nền
+			\fill[phanColor!90] (-1.75,0.05) rectangle (1.15,0.81);
+			% Nhãn “PHẦN”
+			\node[white, font=\bfseries] at (-0.25,0.45)
+			{\faLayerGroup\; PHẦN~#1};
+			% Tên phần
+			\node[anchor=west, font=\bfseries, text=phanColor] (text)
+			at (1.5,0.45) {#2};
+		\end{tikzpicture}
+	\end{flushleft}
+	\vspace{0.07cm}
+}
+
+% ----- Lệnh \phan -----
+\newcommand{\phan}[1]{%
+	\refstepcounter{phan}%
+	\phantomsection
+	\tieudephan{\thephan}{#1}%
+	\addcontentsline{toc}{subsection}{\textcolor{phanColor!80!black}{Phần \thephan. #1}}%
+}
+
+
+%% =========================================================
+%% ========== X. MỤC (A, B, C) & MỤC BOX ==============
+%% =========================================================
+
+% ----- Mục cơ bản (gạch trái, có trong Mục lục) -----
+\newcommand{\muc}[1]{%
+	\refstepcounter{muc}%  % Tăng số mục
+	\phantomsection        % Tạo anchor cho hyperref
+	\setcounter{cau}{0}    % Reset lại số câu khi qua mục mới
+	\addcontentsline{toc}{subsubsection}{%
+		\protect\numberline{\themuc}#1}%  % ✅ Ghi vào mục lục (hiển thị số và nội dung)
+	\vspace{0.5em}
+	\noindent
+	\begin{tikzpicture}[baseline=(muc.base)]
+		\fill[mucColor!80!black] (0,0) rectangle (0.25,0.9);
+		\node (muc)[anchor=west,text=mucColor!90!black,font=\bfseries]
+		at (0.35,0.45) {\themuc.~#1};
+	\end{tikzpicture}%
+	\vspace{0.25em}\par
+}
+
+
+% ----- Mục dạng box không đánh số, chữ xanh dương, canh giữa -----
+\newcommand{\mucbox}[1]{%
+	\vspace{0.05em}
+	\begin{tcolorbox}[
+		colback=mucBoxBG,
+		colframe=mucBoxLine,
+		boxrule=0.8pt,
+		rounded corners,
+		left=5pt,right=5pt,top=3pt,bottom=3pt,
+		before skip=4pt,after skip=6pt,
+		enhanced,
+		]
+		\begin{center}
+			{\bfseries\textcolor{blue!70!black}{#1}}
+		\end{center}
+	\end{tcolorbox}
+}
+
+%% =========================================================
+%% ========== XI. CÂU HỎI – CHÚ Ý – ĐỊNH NGHĨA – ĐỊNH LÍ ==
+%% =========================================================
+
+% --- Câu hỏi (Câu~n) ---
+\newcommand{\cau}[1]{%
+	\refstepcounter{cau}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=cauBG,
+		colframe=cauLine,
+		boxrule=0.7pt,
+		rounded corners,
+		left=6pt,right=6pt,top=14pt,bottom=6pt,
+		before skip=6pt,after skip=6pt,
+		enhanced jigsaw,
+		breakable,                         % ✅ Cho phép chia trang
+		clip upper=false, clip lower=false,% ✅ Cho phép ngắt mềm, không cắt chữ
+		fuzzy shadow={0pt}{-1pt}{2pt}{0.15pt}{black!15}, % (tùy chọn: bóng nhẹ)
+		overlay unbroken and first={%
+			\node[anchor=north west,yshift=3pt,
+			fill=cauColor!90!black,text=white,
+			font=\bfseries,rounded corners=2pt,
+			inner xsep=6pt,inner ysep=1.5pt]
+			at (frame.north west) {\faQuestionCircle\; Câu~\thecau};
+		},
+		]
+		\setstretch{1.3}
+		\vspace{0.2cm}
+		#1
+	\end{tcolorbox}
+}
+
+% --- Chú ý (Chú ý~n) ---
+\newcommand{\chuy}[1]{%
+	\refstepcounter{chuy}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=chuyBG,colframe=chuyLine,
+		boxrule=0.8pt,rounded corners,
+		left=6pt,right=6pt,top=12pt,bottom=4pt,
+		before skip=6pt,after skip=6pt,enhanced,
+		overlay={
+			\node[anchor=north west,yshift=3pt,
+			fill=chuyColor!90!black,text=white,
+			font=\bfseries,rounded corners=2pt,
+			inner xsep=6pt,inner ysep=1.5pt]
+			at (frame.north west) {\faExclamationTriangle\; Chú ý};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+% --- Tính chất (Tính chất~n) ---
+\newcommand{\tinhchat}[1]{%
+	\refstepcounter{tinhchat}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=tinhchatBG,colframe=tinhchatLine,
+		boxrule=0.8pt,rounded corners,
+		left=6pt,right=6pt,top=12pt,bottom=4pt,
+		before skip=6pt,after skip=6pt,enhanced,
+		overlay={
+			\node[anchor=north west,yshift=3pt,
+			fill=tinhchatColor!90!black,text=white,
+			font=\bfseries,rounded corners=2pt,
+			inner xsep=6pt,inner ysep=1.5pt]
+			at (frame.north west) {\faCheckCircle\; Tính chất};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+% --- Định nghĩa (Định nghĩa~n) ---
+\newcommand{\dinhnghia}[1]{%
+	\refstepcounter{dinhnghia}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=dinhnghiaBG,colframe=dinhnghiaLine,
+		boxrule=0.8pt,rounded corners,
+		left=6pt,right=6pt,top=12pt,bottom=4pt,
+		before skip=6pt,after skip=6pt,enhanced,
+		overlay={
+			\node[anchor=north west,yshift=3pt,
+			fill=dinhnghiaColor!90!black,text=white,
+			font=\bfseries,rounded corners=2pt,
+			inner xsep=6pt,inner ysep=1.5pt]
+			at (frame.north west) {\faBook\; Định nghĩa};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+% --- Định lí (Định lí~n) ---
+\newcommand{\dinhli}[1]{%
+	\refstepcounter{dinhli}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=dinhliBG,colframe=dinhliLine,
+		boxrule=0.8pt,rounded corners,
+		left=6pt,right=6pt,top=12pt,bottom=4pt,
+		before skip=6pt,after skip=6pt,enhanced,
+		overlay={
+			\node[anchor=north west,yshift=3pt,
+			fill=dinhliColor!90!black,text=white,
+			font=\bfseries,rounded corners=2pt,
+			inner xsep=6pt,inner ysep=1.5pt]
+			at (frame.north west) {\faBalanceScale\; Định lí};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+% --- Ví dụ (Ví dụ~n) ---
+\newcommand{\vidu}[1]{%
+	\refstepcounter{vidu}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=viduBG, colframe=viduLine,
+		boxrule=0.8pt, rounded corners,
+		left=6pt, right=6pt, top=12pt, bottom=4pt,
+		before skip=6pt, after skip=6pt, enhanced,
+		overlay={
+			\node[anchor=north west, yshift=3pt,
+			fill=viduColor!90!black, text=white,
+			font=\bfseries, rounded corners=2pt,
+			inner xsep=6pt, inner ysep=1.5pt]
+			at (frame.north west) {\faEdit[regular]\; Ví dụ};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+
+% --- Lệnh ghi nhớ ---
+\newcommand{\ghinho}[1]{%
+	\refstepcounter{ghinho}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=yellow!5, colframe=orange!80!red,
+		boxrule=0.8pt, rounded corners,
+		left=6pt, right=6pt, top=12pt, bottom=4pt,
+		before skip=6pt, after skip=6pt, enhanced,
+		breakable,
+		overlay={
+			\node[anchor=north west, yshift=3pt,
+			fill=orange!90!black, text=white,
+			font=\bfseries, rounded corners=2pt,
+			inner xsep=6pt, inner ysep=1.5pt]
+			at (frame.north west) {\faStickyNote\; Ghi nhớ};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+% --- Lệnh mở rộng ---
+\newcommand{\morong}[1]{%
+	\refstepcounter{morong}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=morongBG, colframe=morongLine,
+		boxrule=0.8pt, rounded corners,
+		left=6pt, right=6pt, top=12pt, bottom=4pt,
+		before skip=6pt, after skip=6pt, enhanced,
+		breakable,
+		overlay={
+			\node[anchor=north west, yshift=3pt,
+			fill=morongColor!90!black, text=white,
+			font=\bfseries, rounded corners=2pt,
+			inner xsep=6pt, inner ysep=1.5pt]
+			at (frame.north west) {\faPlusCircle\; Mở rộng};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+% --- Dấu hiệu nhận biết ---
+\newcommand{\dhnb}[1]{%
+	\refstepcounter{dhnb}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=dhnbBG, colframe=dhnbLine,
+		boxrule=0.8pt, rounded corners,
+		left=6pt, right=6pt, top=12pt, bottom=4pt,
+		before skip=6pt, after skip=6pt, enhanced,
+		breakable,
+		overlay={
+			\node[anchor=north west, yshift=3pt,
+			fill=dhnbColor!90!black, text=white,
+			font=\bfseries, rounded corners=2pt,
+			inner xsep=6pt, inner ysep=1.5pt]
+			at (frame.north west) {\faKey\; Dấu hiệu nhận biết};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+%===============Lệnh mở rộng cho kiến thức ======================
+%===============Lệnh mở rộng cho kiến thức ======================
+%===============Lệnh mở rộng cho kiến thức ======================
+
+
+% --- Chú ý (Chú ý~n) ---
+\newcommand{\ghinhon}[1]{%
+	\refstepcounter{chuy}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=chuyBG,colframe=chuyLine,
+		boxrule=0.8pt,rounded corners,
+		left=6pt,right=6pt,top=12pt,bottom=4pt,
+		before skip=6pt,after skip=6pt,enhanced,
+		overlay={
+			\node[anchor=north west,yshift=3pt,
+			fill=chuyColor!90!black,text=white,
+			font=\bfseries,rounded corners=2pt,
+			inner xsep=6pt,inner ysep=1.5pt]
+			at (frame.north west) {\faExclamationTriangle\; Ghi nhớ};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+% --- Tính chất (Tính chất~n) ---
+\newcommand{\ghinhonn}[1]{%
+	\refstepcounter{tinhchat}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=tinhchatBG,colframe=tinhchatLine,
+		boxrule=0.8pt,rounded corners,
+		left=6pt,right=6pt,top=12pt,bottom=4pt,
+		before skip=6pt,after skip=6pt,enhanced,
+		overlay={
+			\node[anchor=north west,yshift=3pt,
+			fill=tinhchatColor!90!black,text=white,
+			font=\bfseries,rounded corners=2pt,
+			inner xsep=6pt,inner ysep=1.5pt]
+			at (frame.north west) {\faCheckCircle\; Ghi nhớ};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+% --- Định nghĩa (Định nghĩa~n) ---
+\newcommand{\ghinhonnn}[1]{%
+	\refstepcounter{dinhnghia}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=dinhnghiaBG,colframe=dinhnghiaLine,
+		boxrule=0.8pt,rounded corners,
+		left=6pt,right=6pt,top=12pt,bottom=4pt,
+		before skip=6pt,after skip=6pt,enhanced,
+		overlay={
+			\node[anchor=north west,yshift=3pt,
+			fill=dinhnghiaColor!90!black,text=white,
+			font=\bfseries,rounded corners=2pt,
+			inner xsep=6pt,inner ysep=1.5pt]
+			at (frame.north west) {\faBook\; Ghi nhớ};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+% --- Định lí (Định lí~n) ---
+\newcommand{\ghinhonnnn}[1]{%
+	\refstepcounter{dinhli}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=dinhliBG,colframe=dinhliLine,
+		boxrule=0.8pt,rounded corners,
+		left=6pt,right=6pt,top=12pt,bottom=4pt,
+		before skip=6pt,after skip=6pt,enhanced,
+		overlay={
+			\node[anchor=north west,yshift=3pt,
+			fill=dinhliColor!90!black,text=white,
+			font=\bfseries,rounded corners=2pt,
+			inner xsep=6pt,inner ysep=1.5pt]
+			at (frame.north west) {\faBalanceScale\; Ghi nhớ};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+% --- Ví dụ (Ví dụ~n) ---
+\newcommand{\ghinhonnnnn}[1]{%
+	\refstepcounter{vidu}%
+	\phantomsection
+	\begin{tcolorbox}[
+		colback=viduBG, colframe=viduLine,
+		boxrule=0.8pt, rounded corners,
+		left=6pt, right=6pt, top=12pt, bottom=4pt,
+		before skip=6pt, after skip=6pt, enhanced,
+		overlay={
+			\node[anchor=north west, yshift=3pt,
+			fill=viduColor!90!black, text=white,
+			font=\bfseries, rounded corners=2pt,
+			inner xsep=6pt, inner ysep=1.5pt]
+			at (frame.north west) {\faEdit[regular]\; Ghi nhớ};
+		},
+		]
+		#1
+	\end{tcolorbox}
+}
+
+
+%% =========================================================
+%% ========== XII. DẤU CHẤM, ĐƯỜNG KẺ, KHOẢNG TRỐNG =======
+%% =========================================================
+
+\newcommand{\dauchamN}{%
+	\leavevmode%
+	\leaders\hbox{\lower0.15ex\hbox{\tiny$\cdot$}\hskip 0.09em}\hfill\kern0pt
+}
+
+% ==============================
+% DẤU CHẤM CÓ ĐỘ DÀI TÙY CHỈNH
+% ==============================
+
+\newcommand{\dauchamT}[1]{%
+\leavevmode
+\makebox[#1][l]{%
+\leaders\hbox{\lower0.25ex\hbox{\tiny$\cdot$}\hskip 0.15em}\hfill
+}%
+}
+
+\NewDocumentCommand{\dauchamC}{m O{1} O{0.5mm}}{%
+	% #1 = số dòng; #2 = số cột-con; #3 = gap
+	\vspace{0.9em}\par\noindent
+	\begin{tikzpicture}[baseline=(base), inner sep=0pt, outer sep=0pt]
+		\coordinate (base) at (0,0);
+		\pgfmathsetlengthmacro{\colw}{\dimexpr\linewidth/#2\relax}
+		\pgfmathsetlengthmacro{\gap}{#3}
+		\pgfmathsetlengthmacro{\eps}{0.2pt}
+		
+		% TĂNG KHOẢNG CÁCH DÒNG TẠI ĐÂY (Thay 1.9em bằng 2.5em hoặc tùy ý)
+		\pgfmathsetlengthmacro{\lineheight}{2.5em} 
+		
+		% Vẽ các dòng kẻ chấm
+		\foreach \i in {1,...,#1}{
+			\pgfmathsetlengthmacro{\yoffset}{-(\i-1)*\lineheight}
+			\foreach \j in {1,...,#2}{
+				\pgfmathsetlengthmacro{\L}{(\j-1)*\colw}
+				\pgfmathsetlengthmacro{\R}{\j*\colw}
+				\ifnum\j=1 \pgfmathsetlengthmacro{\start}{\L} \else \pgfmathsetlengthmacro{\start}{\L + 0.5*\gap} \fi
+				\ifnum\j=#2 \pgfmathsetlengthmacro{\endd}{\R} \else \pgfmathsetlengthmacro{\endd}{\R - 0.5*\gap} \fi
+				
+				\draw[dotted, line width=0.4pt] (\start,\yoffset) -- (\endd - \eps, \yoffset);
+			}
+		}
+		
+		% VẼ ĐƯỜNG CHIA GIỮA (NÉT LIỀN)
+		\ifnum#2>1
+		\foreach \j in {1,...,\numexpr#2-1\relax}{
+			\pgfmathsetlengthmacro{\xmid}{\j*\colw}
+			% Đường dọc bắt đầu từ phía trên dòng 1 một chút và kết thúc tại dòng cuối
+			\draw[solid, line width=0.3pt] (\xmid, 1.2ex) -- (\xmid, -#1*\lineheight + \lineheight);
+		}
+		\fi
+	\end{tikzpicture}
+	\vspace{0.7em}\par
+}
+
+\NewDocumentCommand{\dauchamK}{m O{1} O{0.5mm}}{%
+	\vspace{1.3em}\foreach \i in {1,...,#1}{%
+		\par\noindent
+		\begin{tikzpicture}[baseline=(base)]
+			\coordinate (base) at (0,0);
+			\path[use as bounding box] (0,-1.2ex) rectangle (\linewidth,1.2ex);
+			\pgfmathsetlengthmacro{\colw}{\dimexpr\linewidth/#2\relax}
+			\pgfmathsetlengthmacro{\gap}{#3}
+			\pgfmathsetlengthmacro{\eps}{0.2pt}
+			\foreach \j in {1,...,#2}{
+				\pgfmathsetlengthmacro{\L}{(\j-1)*\colw}
+				\pgfmathsetlengthmacro{\R}{\j*\colw}
+				\ifnum\j=1
+				\pgfmathsetlengthmacro{\start}{\L}
+				\else
+				\pgfmathsetlengthmacro{\start}{\L+0.5*\gap}
+				\fi
+				\ifnum\j=#2
+				\pgfmathsetlengthmacro{\endd}{\R}
+				\else
+				\pgfmathsetlengthmacro{\endd}{\R-0.5*\gap}
+				\fi
+				\pgfmathsetlengthmacro{\startadj}{\start}
+				\pgfmathsetlengthmacro{\endadj}{\endd-\eps}
+				\draw[dotted,line width=0.7pt] (\startadj,0)--(\endadj,0);
+			}
+		\end{tikzpicture}\par\vspace{1.1em}
+	}
+}
+
+\NewDocumentCommand{\dauchamG}{m O{1} O{0.5mm}}{%
+	\Needspace{6\baselineskip} % 👈 TỰ ĐỘNG SANG TRANG NẾU CẦN
+	%--- Tiêu đề Bài giải ---
+	%\vspace{0.1em}
+	\begin{center}
+		\textit{\textbf{\textcolor{luxuryblueDark}{Bài giải}}}
+	\end{center}
+	\vspace{0.4em}
+	
+	%--- Các dòng dấu chấm ---
+	\foreach \i in {1,...,#1}{%
+		\par\noindent
+		\begin{tikzpicture}[baseline=(base)]
+			\coordinate (base) at (0,0);
+			\path[use as bounding box] (0,-1.2ex) rectangle (\linewidth,1.2ex);
+			\pgfmathsetlengthmacro{\colw}{\dimexpr\linewidth/#2\relax}
+			\pgfmathsetlengthmacro{\gap}{#3}
+			\pgfmathsetlengthmacro{\eps}{0.2pt}
+			\foreach \j in {1,...,#2}{
+				\pgfmathsetlengthmacro{\L}{(\j-1)*\colw}
+				\pgfmathsetlengthmacro{\R}{\j*\colw}
+				\ifnum\j=1
+				\pgfmathsetlengthmacro{\start}{\L}
+				\else
+				\pgfmathsetlengthmacro{\start}{\L+0.5*\gap}
+				\fi
+				\ifnum\j=#2
+				\pgfmathsetlengthmacro{\endd}{\R}
+				\else
+				\pgfmathsetlengthmacro{\endd}{\R-0.5*\gap}
+				\fi
+				\pgfmathsetlengthmacro{\startadj}{\start}
+				\pgfmathsetlengthmacro{\endadj}{\endd-\eps}
+				\draw[dotted,line width=0.7pt] (\startadj,0)--(\endadj,0);
+			}
+		\end{tikzpicture}\par\vspace{1.1em}
+	}
+}
+
+% ======= dấu chấm hết trang (phiên bản mới) =========
+\makeatletter
+\NewDocumentCommand{\dauchamE}{m}{%
+  % #1 = số trang muốn phủ (1 = trang hiện tại,
+  %                         2 = +1 trang,
+  %                         3 = +2 trang,...)
+  \par\noindent
+  \begingroup
+
+  % ==== TÍNH SỐ DÒNG CÒN LẠI TRANG HIỆN TẠI ====
+  \dimen@=\pagegoal
+  \advance\dimen@ by -\pagetotal
+  \advance\dimen@ by -\footskip
+  \advance\dimen@ by -0.7\baselineskip
+
+  % 1 dòng dauchamK ≈ 2.4 baselineskip (đã tăng khoảng cách)
+  \count@=\dimen@
+  \divide\count@ by 24
+  \multiply\count@ by 10
+  \divide\count@ by \baselineskip
+
+\ifnum\count@>1
+  \advance\count@ by -1
+  \dauchamK{\count@}[1][0.6mm]
+\fi
+
+
+  % ==== THÊM CÁC TRANG BỔ SUNG NẾU CÓ ====
+  \@tempcnta=1
+  \loop
+    \ifnum\@tempcnta<#1
+      \clearpage
+      % số dòng của 1 trang đầy
+      \count@=\textheight
+      \divide\count@ by 24
+      \multiply\count@ by 10
+      \divide\count@ by \baselineskip
+\advance\count@ by -2
+\dauchamK{\count@}[1][0.6mm]
+
+      \advance\@tempcnta by 1
+  \repeat
+
+  \clearpage
+  \endgroup
+}
+\makeatother
+
+\makeatletter
+\newcommand{\daucham}{%
+	\leavevmode
+	\cleaders\hbox to 0.25em{% 
+		\hss
+		\begin{tikzpicture}
+			% Vẽ một hình vuông đặc siêu nhỏ để giả lập dấu chấm của TikZ dotted
+			% Kích thước 0.4pt đến 0.5pt sẽ cho độ đậm cực kỳ thanh mảnh
+			\fill[black] (0,0) rectangle (0.45pt,0.45pt);
+		\end{tikzpicture}%
+		\hss
+	}\hfill\kern\z@
+}
+\makeatother
+
+%% =========================================================
+%% ========== XIII. MÔI TRƯỜNG TRẮC NGHIỆM – TỰ LUẬN =====
+%% =========================================================
+
+\newenvironment{tracnghiem}{
+	\begin{enumerate}[label=\textbf{\Alph*.},leftmargin=1.5cm,itemsep=0.3em]
+	}{
+	\end{enumerate}
+}
+
+\newenvironment{tracnghiem2}{
+	\begin{multicols}{2}
+		\begin{enumerate}[label=\textbf{\Alph*.},leftmargin=1.5cm,itemsep=0.3em]
+		}{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{tracnghiem3}{
+	\begin{multicols}{3}
+		\begin{enumerate}[label=\textbf{\Alph*.},leftmargin=1.5cm,itemsep=0.3em]
+		}{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{tracnghiem4}{
+	\begin{multicols}{4}
+		\begin{enumerate}[label=\textbf{\Alph*.},leftmargin=1.5cm,itemsep=0.3em]
+		}{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{tuluan}{
+	\begin{enumerate}[label=\textbf{\alph*)},leftmargin=1.5cm,itemsep=0.8em]
+	}{
+	\end{enumerate}
+}
+
+% --- Môi trường tự luận có hình bên trái ---
+\newenvironment{tuluan2ctl}[2]{%
+	\noindent
+	\begin{minipage}[t]{1.5\linewidth}
+		\centering\vspace{0pt}#1
+	\end{minipage}\hfill
+	\begin{minipage}[t]{1.6\linewidth}
+		\vspace{0pt}#2
+	\end{minipage}\par
+}{}
+% cách dùng
+%\begin{tuluan2ctl}
+%	{\includegraphics[width=\linewidth]{hinh-tugiac/tugiac-phan1bai1-2.png}}
+%	{\dauchamK{7}}
+%\end{tuluan2ctl}
+%\dauchamK{3}
+
+% =========================================================
+% LỆNH \chenanhauto — ẢNH TRÁI, CHỮ PHẢI, CHIA TỈ LỆ CHUẨN, KHÍT LỀ, NGẮT TRANG
+% =========================================================
+\RequirePackage{graphicx,paracol,xparse,needspace}
+
+\NewDocumentCommand{\chenanhL}{O{0.35} m m}{%
+	% #1 = tỉ lệ ảnh (vd: 0.35)
+	% #2 = đường dẫn ảnh
+	% #3 = phần nội dung (vd: dấu chấm, ykieu, văn bản,...)
+	
+	\par\vspace{0.3em}%
+	\begingroup
+	\Needspace{6\baselineskip}% tránh cắt ảnh khi gần cuối trang
+	
+	% --- Chia tỉ lệ 2 cột theo tham số ---
+	\columnratio{#1, \dimexpr 1 - #1\relax} % Ảnh trái #1, chữ phải phần còn lại
+	\setlength{\columnsep}{0.3em}% 🔹 khoảng cách giữa hai phần (giảm được)
+	
+	% --- Bắt đầu bố cục ---
+	\begin{paracol}{2}
+		% --- Ảnh bên trái ---
+		\begin{leftcolumn}
+			\vspace{0pt}%
+			\includegraphics[width=\linewidth,keepaspectratio]{#2}
+		\end{leftcolumn}
+		
+		% --- Phần nội dung bên phải ---
+		\begin{rightcolumn}
+			\vspace{0pt}%
+			\raggedright%
+			#3
+		\end{rightcolumn}
+	\end{paracol}
+	
+	\par\vspace{0.3em}%
+	\endgroup
+}
+
+% =========================================================
+% LỆNH \chenanhR — CHỮ TRÁI, ẢNH PHẢI, KHÍT LỀ, KHÔNG BÁO LỖI
+%\chenanhR[0.3]{hinh/6a.png}{}
+% =========================================================
+\NewDocumentCommand{\chenanhR}{O{0.35} m m}{%
+	% #1 = tỉ lệ ảnh (vd: 0.35)
+	% #2 = đường dẫn ảnh
+	% #3 = phần nội dung (chữ bên trái)
+	\par\vspace{0.3em}%
+	\begingroup
+	\Needspace{6\baselineskip}% tránh cắt ảnh khi gần cuối trang
+	
+	% --- Khai báo độ dài an toàn (chỉ nếu chưa tồn tại) ---
+	\ifdefined\chenRimg\else\newlength{\chenRimg}\fi
+	\ifdefined\chenRtxt\else\newlength{\chenRtxt}\fi
+	
+	% --- Thiết lập kích thước ---
+	\setlength{\chenRimg}{#1\textwidth}
+	\setlength{\chenRtxt}{\dimexpr\textwidth-\chenRimg-0.6em\relax}
+	
+	% --- Dàn song song, căn giữa theo chiều dọc ---
+	\noindent
+	\begin{minipage}[c]{\chenRtxt}
+		\vspace{0pt}%
+		#3
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[c]{\chenRimg}
+		\centering
+		\vspace{0pt}%
+		\includegraphics[width=\linewidth,keepaspectratio]{#2}
+	\end{minipage}%
+	\par\vspace{0.3em}%
+	\endgroup
+}
+
+
+% =========================================================
+% ====== MÔ-ĐUN CÂU TỰ LUẬN TỰ ĐỘNG (CAUAUTO) =============
+% =========================================================
+% Tự động chia nhóm 2, 3, 4 ý — thêm số dòng dấu chấm tương ứng.
+% ---------------------------------------------------------
+% Cách dùng:
+%   \cauauto[<số ý mỗi nhóm>]{<đề bài>}{<danh sách biểu thức cách nhau dấu phẩy>}
+%   Ví dụ:
+%   \cauauto[3]{Rút gọn các phân thức sau:}{
+	%     \dfrac{a^2-b^2}{a^2+2ab+b^2},
+	%     \dfrac{x^2-9}{x^2-6x+9},
+	%     \dfrac{8x^3}{2x^2},
+	%     \dfrac{4y^2}{2y}}
+% ---------------------------------------------------------
+
+\RequirePackage{etoolbox}
+\RequirePackage{multicol}
+\RequirePackage{pgfmath}
+
+% --- Xóa trùng nếu có (chống lỗi “already defined”) ---
+\makeatletter
+\@ifundefined{tuluan2}{}{\let\tuluan2\relax \let\endtuluan2\relax}
+\@ifundefined{tuluan3}{}{\let\tuluan3\relax \let\endtuluan3\relax}
+\@ifundefined{tuluan4}{}{\let\tuluan4\relax \let\endtuluan4\relax}
+\makeatother
+
+% --- Môi trường 2, 3, 4 cột ---
+
+
+\newcommand{\batdauchu}[1]{%
+	\setcounter{enumi}{\numexpr`#1-`a\relax}%
+}
+%-------Cách dùng đánh chữ bất kì-------------
+%\begin{tuluan2}
+%	\batdauchu{c}
+%	\item $5$ ngày $12$ giờ + $4$ ngày $11$ giờ
+%	\item $2$ năm $6$ tháng + $8$ năm $8$ tháng
+%\end{tuluan2}
+
+\newenvironment{tuluan2}{
+	\begin{multicols}{2}
+		\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.5cm, itemsep=1em]
+		}{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{tuluan3}{
+	\begin{multicols}{3}
+		\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.5cm, itemsep=0.3em]
+		}{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{tuluan4}{
+	\begin{multicols}{4}
+		\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.5cm, itemsep=0.3em]
+		}{
+		\end{enumerate}
+	\end{multicols}
+}
+
+% --- Bộ đếm phụ ---
+\newcounter{itemCount}
+
+% =========================================================
+% ====== MÔ-ĐUN CÂU TỰ LUẬN MỞ RỘNG (CAUNN) ===============
+% =========================================================
+% Cách dùng:
+%   \cauNN[<số cột>][<số dòng dấu chấm>]{<đề bài>}{<danh sách biểu thức cách nhau dấu phẩy>}
+% ---------------------------------------------------------
+
+\NewDocumentCommand{\cauN}{O{2} O{3} m m}{%
+	\cau{#3}% --- in phần đề bài ---
+	\setcounter{itemCount}{0}% reset bộ đếm
+	\begingroup
+	\def\cols{#1}% số cột (2, 3, 4)
+	\def\lines{#2}% số dòng dấu chấm (tùy chọn)
+	\def\groupOpen{0}% cờ báo nhóm đang mở
+	
+	% --- Tự động chọn môi trường phù hợp ---
+	\def\beginEnv{%
+		\ifnum\cols=1 \begin{tuluan}%
+			\else\ifnum\cols=2 \begin{tuluan2}%
+				\else\ifnum\cols=3 \begin{tuluan3}%
+					\else\ifnum\cols=4 \begin{tuluan4}%
+						\fi\fi\fi\fi
+					}%
+					\def\endEnv{%
+						\ifnum\cols=1 \end{tuluan}%
+					\else\ifnum\cols=2 \end{tuluan2}%
+				\else\ifnum\cols=3 \end{tuluan3}%
+			\else\ifnum\cols=4 \end{tuluan4}%
+		\fi\fi\fi\fi
+	}%
+	
+	% --- Lặp qua từng ý ---
+	\renewcommand{\do}[1]{%
+		\stepcounter{itemCount}%
+		\ifnum\groupOpen=0
+		\beginEnv%
+		\addtocounter{enumi}{\value{itemCount}-1}%
+		\fi
+		\item ##1%
+		\pgfmathtruncatemacro{\modres}{mod(\value{itemCount},\cols)}%
+		\ifnum\modres=0
+		\endEnv%
+		\dauchamK{\lines}[\cols][3mm]%
+		\def\groupOpen{0}%
+		\else
+		\def\groupOpen{1}%
+		\fi
+	}%
+	
+	% --- Đọc danh sách biểu thức ---
+	\docsvlist{#4}%
+	
+	% --- Kết nhóm nếu còn dở ---
+	\ifnum\groupOpen=1
+	\endEnv%
+	\dauchamK{\lines}[\cols][3mm]%
+	\fi
+	\endgroup
+}
+
+
+%% =========================================================
+%% ========== XIV. BIỂU ĐỒ & HƯỚNG DẪN SỬ DỤNG ============
+%% =========================================================
+%%
+%% Các môi trường biểu đồ được thiết kế bằng TikZ + PGFPlots.
+%% Có thể dùng để minh họa số liệu thống kê, bài toán thực tế, v.v.
+%%
+%%==========================================================
+%% BIỂU ĐỒ HÌNH QUẠT TRÒN MÀU PASTEL
+%%==========================================================
+%% Cách dùng:
+%%
+%% \myPatternPie[<bán kính>]{
+	%%     <tỉ lệ>/<chú thích>,
+	%%     <tỉ lệ>/<chú thích>,
+	%%     ...
+	%% }
+%%
+%% Ví dụ:
+%%
+%% \myPatternPie[1.6]{
+	%%     50/Nửa hình tròn,
+	%%     25/Một phần tư,
+	%%     25/Một phần tư
+	%% }
+%%==========================================================
+
+%----------------------------------------------------------
+% BẢNG MÀU PASTEL
+%----------------------------------------------------------
+%==========================================================
+% BẢNG MÀU TƯƠI, ĐỒNG BỘ VỚI TOÀN BỘ BÀI
+%==========================================================
+\definecolor{pieColorOne}{RGB}{255,170,178}   % hồng san hô
+\definecolor{pieColorTwo}{RGB}{149,203,255}   % xanh da trời
+\definecolor{pieColorThree}{RGB}{164,226,165} % xanh lá non
+\definecolor{pieColorFour}{RGB}{255,205,130}  % cam kem
+\definecolor{pieColorFive}{RGB}{213,176,255}  % tím nhạt
+\definecolor{pieColorSix}{RGB}{137,224,218}   % xanh ngọc
+\definecolor{pieColorSeven}{RGB}{255,191,224} % hồng tím
+
+\definecolor{pieBorder}{RGB}{95,95,95}
+\definecolor{pieText}{RGB}{55,55,55}
+
+\newcount\patternpieN
+
+\newcommand{\myPatternPie}[2][1.6]{%
+	\begingroup
+	
+	% Bán kính hình tròn
+	\def\R{#1}%
+	
+	% Đếm số phần dữ liệu
+	\patternpieN=0
+	\foreach \entry in {#2}{%
+		\global\advance\patternpieN by 1
+	}%
+	
+	% Góc bắt đầu
+	\def\startangle{90}%
+	
+	\begin{tikzpicture}[
+		font=\scriptsize,
+		line cap=round,
+		line join=round
+		]
+		
+		%==================================================
+		% VẼ CÁC HÌNH QUẠT
+		%==================================================
+		\foreach[count=\i from 1] \p/\name in {#2}{
+			
+			%------------------------------------------------
+			% Chọn màu
+			%------------------------------------------------
+			\pgfmathtruncatemacro{\colorindex}{
+				mod(\i-1,7)+1
+			}
+			
+			\ifcase\colorindex\relax
+			\or
+			\def\mycolor{pieColorOne}
+			\or
+			\def\mycolor{pieColorTwo}
+			\or
+			\def\mycolor{pieColorThree}
+			\or
+			\def\mycolor{pieColorFour}
+			\or
+			\def\mycolor{pieColorFive}
+			\or
+			\def\mycolor{pieColorSix}
+			\else
+			\def\mycolor{pieColorSeven}
+			\fi
+			
+			%------------------------------------------------
+			% Tính góc
+			%------------------------------------------------
+			\pgfmathsetmacro{\delta}{\p*3.6}
+			\pgfmathsetmacro{\endangle}{
+				\startangle-\delta
+			}
+			\pgfmathsetmacro{\midangle}{
+				\startangle-0.5*\delta
+			}
+			
+			%------------------------------------------------
+			% Vẽ hình quạt
+			%------------------------------------------------
+			\filldraw[
+			fill=\mycolor,
+			draw=pieBorder,
+			line width=0.6pt
+			]
+			(0,0)
+			--(\startangle:\R)
+			arc[
+			start angle=\startangle,
+			end angle=\endangle,
+			radius=\R
+			]
+			--cycle;
+			
+			%------------------------------------------------
+			% Ghi phần trăm
+			%------------------------------------------------
+			\node[
+			font=\bfseries,
+			text=pieText,
+			fill=white,
+			fill opacity=0.72,
+			text opacity=1,
+			inner sep=1.2pt,
+			rounded corners=1.2pt
+			]
+			at (\midangle:0.62*\R)
+			{\p\%};
+			
+			% Cập nhật góc bắt đầu
+			\xdef\startangle{\endangle}
+		}
+		
+		%==================================================
+		% VIỀN NGOÀI
+		%==================================================
+		\draw[
+		draw=pieBorder,
+		line width=0.8pt
+		]
+		(0,0) circle (\R);
+		
+		%==================================================
+		% CHÚ THÍCH
+		%==================================================
+		\begin{scope}[xshift=1.22*\R cm]
+			
+			\def\s{0.34}
+			\pgfmathsetmacro{\gap}{0.58}
+			\pgfmathsetmacro{\starty}{
+				(\number\patternpieN-1)*\gap/2
+			}
+			
+			\node[
+			anchor=west,
+			font=\bfseries\small ,
+			text=pieText
+			]
+			at (0,\starty+\gap+0.3)
+			{Chú thích};
+			
+			\foreach[count=\j from 1] \p/\name in {#2}{
+				
+				%--------------------------------------------
+				% Chọn màu tương ứng
+				%--------------------------------------------
+				\pgfmathtruncatemacro{\colorindex}{
+					mod(\j-1,7)+1
+				}
+				
+				\ifcase\colorindex\relax
+				\or
+				\def\mycolorLegend{pieColorOne}
+				\or
+				\def\mycolorLegend{pieColorTwo}
+				\or
+				\def\mycolorLegend{pieColorThree}
+				\or
+				\def\mycolorLegend{pieColorFour}
+				\or
+				\def\mycolorLegend{pieColorFive}
+				\or
+				\def\mycolorLegend{pieColorSix}
+				\else
+				\def\mycolorLegend{pieColorSeven}
+				\fi
+				
+				\pgfmathsetmacro{\y}{
+					\starty-(\j-1)*\gap
+				}
+				
+				% Ô màu
+				\filldraw[
+				fill=\mycolorLegend,
+				draw=pieBorder,
+				line width=0.45pt
+				]
+				(0,\y)
+				rectangle ++(\s,\s);
+				
+				% Nội dung chú thích
+				\node[
+				anchor=west,
+				text=pieText,
+				font=\footnotesize ,
+				text width=5cm,
+				align=left
+				]
+				at (\s+0.14,\y+0.5*\s)
+				{\name};
+			}
+		\end{scope}
+		
+	\end{tikzpicture}
+	
+	\endgroup
+}
+
+%% ---------------------------------------------------------
+%% 2️⃣ BIỂU ĐỒ CỘT — \bieudocot
+%% ---------------------------------------------------------
+%% Cách dùng:
+%%   \bieudocot{Danh mục}{Giá trị1,Giá trị2,...}
+%%   \bieudocot{Lớp}{35,40,28,50}
+%%
+%% Sẽ tự động sinh cột với độ cao tương ứng, nhãn bên dưới.
+%% ---------------------------------------------------------
+
+\newcommand{\bieudocot}[2][1]{%
+\begin{tikzpicture}[x=1.5cm,y=0.7cm,scale=#1]
+	% ==== TRỤC TUNG ====
+	\draw[->] (0,0) -- (0,9);
+	\node[rotate=0,anchor=east,scale=0.7] at (2,9.5) {\small Số học sinh};
+	% ==== VẠCH CHIA ====
+	\foreach \y in {0,1,...,8}
+	\draw (-0.1,\y) -- (0.1,\y) node[left=4pt,scale=0.75]{\small \y};
+	\draw (0,0) -- (7.5,0);
+	
+	% ==== VẼ CÁC CỘT ====
+	\foreach \x/\h/\lbl in {#2}{%
+		\draw[fill=blue,draw=black] (\x,0) rectangle ++(0.8,\h);
+		\node[above,scale=0.75] at (\x+0.4,\h) {\small \h};
+		\node[below,scale=0.6,text depth=1.5pt] at (\x+0.4,0) {\text{\lbl}};
+	}
+\end{tikzpicture}%
+}
+
+%% ---------------------------------------------------------
+%% 3️⃣ BIỂU ĐỒ CỘT KÉP — \bieudocotkep
+%% ---------------------------------------------------------
+%% Dùng để so sánh 2 nhóm dữ liệu (VD: Nam / Nữ, Trước / Sau,...)
+%%
+%% Cách dùng:
+%%   \bieudocotkep{Danh mục}{Dữ liệu1}{Dữ liệu2}{Tên1}{Tên2}
+%%
+%% Ví dụ:
+%%{\centering
+%%	\bieudocotkep{Bóng đá}{12}{10}{Bóng rổ}{5}{6}{Cầu lông}{8}{7}
+%%	\par}}
+%%
+%% ---------------------------------------------------------
+
+\newcommand{\bieudocotkep}[9]{%
+\begin{center}
+\begin{tikzpicture}[scale=0.6,font=\small]
+	% ==== TRỤC TUNG ====
+	\draw[->] (0,0) -- (0,6.5) node[above right] {Số học sinh};
+	\foreach \y in {0,2,4,6,8,10,12}{
+		\draw (-0.08,\y/2) -- (0.08,\y/2);
+		\node[left] at (-0.12,\y/2) {\y};
+	}
+	% ==== ĐƯỜNG ĐÁY ====
+	\draw[thick] (0,0) -- (7.8,0);
+	% ==== KHOẢNG CÁCH & CHIỀU RỘNG CỘT ====
+	\def\xsep{2.2}
+	\def\w{0.35}
+	
+	% --- Nhóm 1 ---
+	\draw[fill=blue] (1*\xsep-\w,0) rectangle ++(2*\w,#2/2);
+	\node[above,font=\scriptsize] at (1*\xsep,#2/2) {#2};
+	
+	\draw[draw=black,fill=white] (1*\xsep+\w,0) rectangle ++(2*\w,#3/2);
+	\node[above,font=\scriptsize] at (1*\xsep+2*\w,#3/2) {#3};
+	
+	% --- Nhóm 2 ---
+	\draw[fill=blue] (2*\xsep-\w,0) rectangle ++(2*\w,#5/2);
+	\node[above,font=\scriptsize] at (2*\xsep,#5/2) {#5};
+	
+	\draw[draw=black,fill=white] (2*\xsep+\w,0) rectangle ++(2*\w,#6/2);
+	\node[above,font=\scriptsize] at (2*\xsep+2*\w,#6/2) {#6};
+	
+	% --- Nhóm 3 ---
+	\draw[fill=blue] (3*\xsep-\w,0) rectangle ++(2*\w,#8/2);
+	\node[above,font=\scriptsize] at (3*\xsep,#8/2) {#8};
+	
+	\draw[draw=black,fill=white] (3*\xsep+\w,0) rectangle ++(2*\w,#9/2);
+	\node[above,font=\scriptsize] at (3*\xsep+2*\w,#9/2) {#9};
+	
+	% ==== NHÃN NHÓM ====
+	\node[below,scale=0.85] at (1*\xsep+1*\w,0) {\text{#1}};
+	\node[below,scale=0.85] at (2*\xsep+1*\w,0) {\text{#4}};
+	\node[below,scale=0.85] at (3*\xsep+1*\w,0) {\text{#7}};
+	
+	% ==== CHÚ THÍCH ====
+	\draw[fill=blue] (7.2,5.8) rectangle ++(0.35,0.35);
+	\node[right] at (7.6,6.0) {Nam};
+	\draw[draw=black,fill=white] (7.2,5.0) rectangle ++(0.35,0.35);
+	\node[right] at (7.6,5.2) {Nữ};
+\end{tikzpicture}
+\end{center}
+}
+
+%% =========================================================
+%% ========== XV. MỤC LỤC & CÁC TÙY CHỈNH KHÁC ============
+%% =========================================================
+
+% Giảm khoảng cách giữa các dòng trong mục lục
+\setlength{\cftbeforesecskip}{0.2em}
+\renewcommand{\cftsecfont}{\bfseries\color{tocColor}}
+\renewcommand{\cftsubsecfont}{\color{tocColor!80!black}}
+\renewcommand{\cftsubsubsecfont}{\color{tocColor!60!black}}
+\renewcommand{\cftsecpagefont}{\bfseries\color{tocColor}}
+\renewcommand{\cftsubsecpagefont}{\color{tocColor!80!black}}
+\renewcommand{\cftsubsubsecpagefont}{\color{tocColor!60!black}}
+
+% Định dạng đường kẻ giữa mục và số trang
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% Ẩn số trang cho các chương mở đầu (nếu cần)
+\newcommand{\noPageNumber}{
+\thispagestyle{plainempty}
+\addtocounter{page}{-1}
+}
+
+%% =========================================================
+%% ========== XVI. KẾT THÚC FILE & GHI NHỚ ================
+%% =========================================================
+%%
+%%  ✅ Đây là phiên bản chuẩn hóa hoàn toàn của my-style.sty
+%%  ✅ Tương thích tốt với TeX Live ≥ 2023
+%%  ✅ Có thể dùng cho tài liệu book, report, hoặc standalone
+%%
+%%  🔹 Gợi ý:
+%%     - Sử dụng \bai, \phan, \muc, \cau, \chuy... để định dạng.
+%%     - Các box hỗ trợ icon FontAwesome (\fa...).
+%%     - Biểu đồ dùng PGFPlots (đảm bảo \usepackage{pgfplots}).
+%%
+%% =========================================================
+
+%% =========================================================
+%% ========== VII. TIÊU ĐỀ CHƯƠNG DẠNG MŨI TÊN ============ CHỦ ĐỀ
+%% =========================================================
+
+
+% =========================================================
+% TÙY CHỈNH MỤC LỤC (TOC) — MÀU SẮC & CĂN LỀ
+% =========================================================
+\usepackage{tocloft}
+\usepackage{xcolor}
+
+% --- Tiêu đề "MỤC LỤC" có màu và kiểu chữ riêng ---
+\renewcommand{\cfttoctitlefont}{\Huge\bfseries\color{teal}}
+\renewcommand{\cftaftertoctitle}{\hfill} % canh giữa
+
+% --- Độ lùi các cấp ---
+\setlength{\cftchapindent}{1.9cm}       % Chương: không lùi
+\setlength{\cftsecindent}{2.8cm}      % Bài (section): lùi 1.2cm
+\setlength{\cftsubsecindent}{3.7cm}   % Tiểu mục (subsection): lùi 2.4cm
+\setlength{\cftsubsubsecindent}{4.3cm}
+\setlength{\cftsubsubsecnumwidth}{1.5em}
+
+% --- Giãn cách giữa các dòng ---
+\setlength{\cftbeforechapskip}{10pt}  % khoảng cách giữa các dòng chương
+\setlength{\cftbeforesecskip}{3pt}    % khoảng cách giữa các dòng bài
+\setlength{\cftbeforesubsecskip}{1pt} % khoảng cách giữa các dòng tiểu mục
+
+% --- Kiểu chữ cho từng cấp ---
+\renewcommand{\cftchapfont}{\bfseries\color{teal}}     % chương màu teal, đậm
+\renewcommand{\cftsecfont}{\color{black}}              % bài màu đen
+\renewcommand{\cftsubsecfont}{\color{gray!70}}         % tiểu mục xám nhẹ
+
+% --- Màu chủ đạo đồng bộ (ví dụ hồng mạnh mẽ) ---
+\definecolor{tocColor}{RGB}{194,24,91} % Raspberry Pink (đồng bộ với baiColor)
+
+% --- Đặt lại font và màu cho từng cấp ---
+\renewcommand{\cftpartfont}{\bfseries\color{partColor}}
+\renewcommand{\cftpartpagefont}{\bfseries\color{partColor}}
+\renewcommand{\cftchapfont}{\bfseries\color{chapterColor}}
+\renewcommand{\cftchappagefont}{\bfseries\color{chapterColor}}
+\renewcommand{\cftsecfont}{\color{baicolor}}
+\renewcommand{\cftsubsecfont}{\color{phanColor}}
+
+% --- Đồng bộ dấu chấm (dot leader) ---
+\renewcommand{\cftdot}{.}
+\renewcommand{\cftdotsep}{1.5}
+
+% --- Bật chấm nối và số trang cho PHẦN LỚN---
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftpartafterpnum}{}
+\renewcommand{\cftpartpagefont}{\bfseries\color{partColor}}
+
+% --- Bật chấm nối và số trang cho CHƯƠNG ---
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapafterpnum}{}
+\renewcommand{\cftchappagefont}{\bfseries\color{chapterColor}}
+
+% --- Bật chấm nối và số trang cho BÀI ---
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecafterpnum}{}
+\renewcommand{\cftsecpagefont}{\color{baicolor}}
+
+% --- Bật chấm nối và số trang cho BÀI ---
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecafterpnum}{}
+\renewcommand{\cftsubsecpagefont}{\color{phanColor}}
+
+\renewcommand{\cftdotfill}[1]{\leavevmode\leaders\hbox{\textcolor{tocColor}{.}}\hfill\kern0pt}
+
+% =====================================================
+% GÓI DANH SÁCH ĐẸP - PHIÊN BẢN ĐẢO MÀU
+% Ký hiệu xanh, nền trắng, chữ xanh dương
+% =====================================================
+
+\RequirePackage{xparse}
+\RequirePackage{enumitem}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{fontawesome5}
+\usetikzlibrary{shapes.geometric,shadows.blur}
+
+% =====================================================
+% MÀU CHUNG
+% =====================================================
+
+\definecolor{mauxanhlaA}{RGB}{185,245,195}
+\definecolor{mauxanhlaB}{RGB}{20,145,75}
+\definecolor{mauxanhlaC}{RGB}{0,105,55}
+\definecolor{mauxanhduong}{RGB}{20,80,190}
+
+% Chữ của các ý
+\newcommand{\mauchuY}{\color{mauxanhduong!92!black}}
+
+% =====================================================
+% ICON ĐẢO MÀU
+% Nền trắng, ký hiệu xanh, viền xanh
+% =====================================================
+
+\NewDocumentCommand{\iconXanh}{O{circle} m}{%
+	\tikz[baseline=-0.65ex]{
+		\node[
+			#1,
+			fill=white,
+			draw=mauxanhlaB!90!black,
+			line width=0.55pt,
+			text=mauxanhlaC,
+			font=\scriptsize\bfseries,
+			inner sep=1.35pt,
+			minimum size=5.4mm,
+			blur shadow={shadow blur steps=4,shadow xshift=.35pt,shadow yshift=-.35pt}
+		]{#2};
+	}%
+}
+
+% Icon số tròn: nền trắng, số xanh
+\NewDocumentCommand{\soXanh}{m}{%
+	\tikz[baseline=-0.65ex]{
+		\node[
+			circle,
+			fill=white,
+			draw=mauxanhlaB!90!black,
+			line width=0.55pt,
+			text=mauxanhlaC,
+			font=\scriptsize\bfseries,
+			inner sep=1.35pt,
+			minimum size=5.4mm,
+			blur shadow={shadow blur steps=4,shadow xshift=.35pt,shadow yshift=-.35pt}
+		]{#1};
+	}%
+}
+
+% Icon hình thoi: nền trắng, viền xanh
+\NewDocumentCommand{\thoiXanh}{m}{%
+	\tikz[baseline=-0.65ex]{
+		\node[
+			diamond,
+			aspect=1,
+			fill=white,
+			draw=mauxanhlaB!90!black,
+			line width=0.55pt,
+			text=mauxanhlaC,
+			font=\scriptsize\bfseries,
+			inner sep=1.35pt,
+			minimum size=5.5mm,
+			blur shadow={shadow blur steps=4,shadow xshift=.35pt,shadow yshift=-.35pt}
+		]{#1};
+	}%
+}
+
+% Icon ngôi sao: nền trắng, viền xanh
+\NewDocumentCommand{\saoXanh}{m}{%
+	\tikz[baseline=-0.65ex]{
+		\node[
+			star,
+			star points=5,
+			fill=white,
+			draw=mauxanhlaB!90!black,
+			line width=0.55pt,
+			text=mauxanhlaC,
+			font=\scriptsize\bfseries,
+			inner sep=1.35pt,
+			minimum size=5.8mm,
+			blur shadow={shadow blur steps=4,shadow xshift=.35pt,shadow yshift=-.35pt}
+		]{#1};
+	}%
+}
+
+% =====================================================
+% CÁC DANH SÁCH ĐẸP
+% =====================================================
+
+% 5. Sao
+\newlist{dsSao}{itemize}{1}
+\setlist[dsSao]{
+	label={\iconXanh{\faIcon{star}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% 6. Trang trí 1
+\newlist{dsTrangTri1}{itemize}{1}
+\setlist[dsTrangTri1]{
+	label={\thoiXanh{\faIcon{check}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% 7. Trang trí 2
+\newlist{dsTrangTri2}{itemize}{1}
+\setlist[dsTrangTri2]{
+	label={\saoXanh{}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% 8. Vòng tròn số
+\newlist{dsVong}{enumerate}{1}
+\setlist[dsVong]{
+	label={\soXanh{\arabic*}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% 13. Bàn tay
+\newlist{dsHand}{itemize}{1}
+\setlist[dsHand]{
+	label={\iconXanh{\faIcon{hand-point-right}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% 14. Mặt trời
+\newlist{dsSun}{itemize}{1}
+\setlist[dsSun]{
+	label={\iconXanh{\faIcon{sun}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% 15. Trái tim
+\newlist{dsHeart}{itemize}{1}
+\setlist[dsHeart]{
+	label={\iconXanh{\faIcon{heart}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% 16. Lá cây
+\newlist{dsLeaf}{itemize}{1}
+\setlist[dsLeaf]{
+	label={\iconXanh{\faIcon{leaf}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% 17. Hình thoi
+\newlist{dsDiamond}{itemize}{1}
+\setlist[dsDiamond]{
+	label={\thoiXanh{}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% 18. Mũi tên phải
+\newlist{dsArrowR}{itemize}{1}
+\setlist[dsArrowR]{
+	label={\iconXanh{\faIcon{arrow-right}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% 20. Chuông
+\newlist{dsBell}{itemize}{1}
+\setlist[dsBell]{
+	label={\iconXanh{\faIcon{bell}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% =====================================================
+% THÊM VÀI KIỂU ĐẸP
+% =====================================================
+
+% Sách
+\newlist{dsBook}{itemize}{1}
+\setlist[dsBook]{
+	label={\iconXanh{\faIcon{book-open}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% Ý tưởng
+\newlist{dsIdea}{itemize}{1}
+\setlist[dsIdea]{
+	label={\iconXanh{\faIcon{lightbulb}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% Cảnh báo
+\newlist{dsWarning}{itemize}{1}
+\setlist[dsWarning]{
+	label={\iconXanh{\faIcon{exclamation-triangle}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% Bút chì
+\newlist{dsPencil}{itemize}{1}
+\setlist[dsPencil]{
+	label={\iconXanh{\faIcon{pencil-alt}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% Mầm cây
+\newlist{dsFlower}{itemize}{1}
+\setlist[dsFlower]{
+	label={\iconXanh{\faIcon{seedling}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% Ngọn lửa
+\newlist{dsFire}{itemize}{1}
+\setlist[dsFire]{
+	label={\iconXanh{\faIcon{fire}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% Cờ đánh dấu
+\newlist{dsFlag}{itemize}{1}
+\setlist[dsFlag]{
+	label={\iconXanh{\faIcon{flag}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% Dấu hỏi
+\newlist{dsQuestion}{itemize}{1}
+\setlist[dsQuestion]{
+	label={\iconXanh{\faIcon{question}}},
+	leftmargin=1.25cm,
+	itemsep=4pt,
+	before=\mauchuY
+}
+
+% =====================================================
+% MACRO GỌI NHANH
+% Dùng: \begin{ykieu}{bell} ... \end{ykieu}
+% =====================================================
+
+\ExplSyntaxOn
+
+\NewDocumentEnvironment{ykieu}{m}
+{
+	\str_case:nnF {#1}
+	{
+		{sao}        {\begin{dsSao}}
+		{trangTri1}  {\begin{dsTrangTri1}}
+		{trangTri2}  {\begin{dsTrangTri2}}
+		{vong}       {\begin{dsVong}}
+		{hand}       {\begin{dsHand}}
+		{sun}        {\begin{dsSun}}
+		{heart}      {\begin{dsHeart}}
+		{leaf}       {\begin{dsLeaf}}
+		{diamond}    {\begin{dsDiamond}}
+		{arrowR}     {\begin{dsArrowR}}
+		{bell}       {\begin{dsBell}}
+		{book}       {\begin{dsBook}}
+		{idea}       {\begin{dsIdea}}
+		{warning}    {\begin{dsWarning}}
+		{pencil}     {\begin{dsPencil}}
+		{flower}     {\begin{dsFlower}}
+		{fire}       {\begin{dsFire}}
+		{flag}       {\begin{dsFlag}}
+		{question}   {\begin{dsQuestion}}
+	}
+	{
+		\PackageError{ykieu}
+		{Kieu~'#1'~chua~duoc~dinh~nghia}
+		{
+			Hay~chon:~sao,~trangTri1,~trangTri2,~vong,~hand,~sun,~heart,
+			leaf,~diamond,~arrowR,~bell,~book,~idea,~warning,~pencil,
+			flower,~fire,~flag,~question.
+		}
+	}
+}
+{
+	\str_case:nn {#1}
+	{
+		{sao}        {\end{dsSao}}
+		{trangTri1}  {\end{dsTrangTri1}}
+		{trangTri2}  {\end{dsTrangTri2}}
+		{vong}       {\end{dsVong}}
+		{hand}       {\end{dsHand}}
+		{sun}        {\end{dsSun}}
+		{heart}      {\end{dsHeart}}
+		{leaf}       {\end{dsLeaf}}
+		{diamond}    {\end{dsDiamond}}
+		{arrowR}     {\end{dsArrowR}}
+		{bell}       {\end{dsBell}}
+		{book}       {\end{dsBook}}
+		{idea}       {\end{dsIdea}}
+		{warning}    {\end{dsWarning}}
+		{pencil}     {\end{dsPencil}}
+		{flower}     {\end{dsFlower}}
+		{fire}       {\end{dsFire}}
+		{flag}       {\end{dsFlag}}
+		{question}   {\end{dsQuestion}}
+	}
+}
+
+\ExplSyntaxOff
+
+% =========================================================
+% CÔ NGÂN CẬP NHẬT - 
+% =========================================================
+
+% =========================================================
+% \baitinhchia{}{}: đặt phép chia dọc
+% =========================================================
+\newcommand{\baitinhchia}[2]{%
+	\ensuremath{%
+\begin{tikzpicture}[baseline={(A.base)}]
+	% Số bị chia
+	\node (A) at (0,0) {\(#1\)};
+	% Số chia
+	\node (B) at (1.8,0) {\(#2\)};
+	
+	% Trục chia: thanh dọc thứ 1 (|)
+	\draw[line width=0.6pt] (1.2,0.4) -- (1.2,-1.6);
+	
+	% Thanh ngang: bắt đầu từ trục chia, dưới số chia
+	\draw[line width=0.6pt] (1.2,-0.4) -- (3.0,-0.4);
+	\end{tikzpicture}
+}
+}
+
+% =========================================================
+% \lapanh[kích cỡ ảnh]{link ảnh}{số hàng}{số cột}: lặp lại 1 ảnh m hàng và n cột
+% =========================================================
+\ExplSyntaxOn
+\NewDocumentCommand{\lapanh}{ O{1.5cm} m m m }
+{
+	\begin{center}
+		\int_zero:N \l_tmpa_int
+		\int_step_inline:nn { #3 }
+		{
+			\int_step_inline:nn { #4 }
+			{
+				\parbox[c]{#1}{\centering\includegraphics[width=#1]{#2}}
+				\int_incr:N \l_tmpa_int
+				\int_compare:nNnT {##1} < {#4} { \hspace{6pt} }
+			}
+			\int_compare:nNnT {##1} < {#3} { \par\smallskip }
+		}
+	\end{center}
+}
+
+
+\ExplSyntaxOff
+
+\newcommand{\checksquare}[1][0.7]{%
+	\tikz\draw[line width=1pt] (0,0) rectangle (#1,#1);
+}
+
+
+% =========================================================
+% \chenanhC — CHÈN ẢNH CĂN GIỮA
+% =========================================================
+% Cách dùng:
+% \chenanh[0.5]{hinh/abc.png}
+% Mặc định: 0.6\linewidth nếu không ghi tỉ lệ
+% ---------------------------------------------------------
+
+\NewDocumentCommand{\chenanh}{ O{0.6} m }{%
+	\begin{center}
+		\includegraphics[width=#1\linewidth,keepaspectratio]{#2}
+	\end{center}
+}
+% =========================================================
+% \chude-chủ đề không đánh số
+% =========================================================
+\definecolor{chudeColor}{HTML}{E07A5F}
+\newcommand{\chude}[1]{%
+	\setcounter{baiso}{0}
+	\DrawChapterHeader{\textbf{\textit{Chủ đề}}}
+	{{\color{chudeColor}#1}}%
+	\par\vspace{0.5cm}%
+}
+
+% =========================================================
+% \phieubaitap{7}{PHIẾU BÀI TẬP TUẦN}. Hiển thị: TOÁN i với i tùy chỉnh
+% =========================================================
+\newcommand{\phieubaitap}[2]{%
+	\setcounter{baiso}{0}
+	\DrawChapterHeader{\textbf{\textit{Toán #1}}}
+	{\color{chudeColor}#2}
+	\par\vspace{0.5cm}%
+}
+
+
+% =========================================================
+% MÔI TRƯỜNG KIẾN THỨC CẦN NHỚ
+% =========================================================
+
+\newtcolorbox{kienthuccannho}{
+	colback=kienthucBG,
+	colframe=chapterTeal,
+	boxrule=0.8pt,
+	arc=3pt,
+	left=10pt,
+	right=10pt,
+	top=14pt,
+	bottom=10pt,
+	enhanced,
+	breakable,
+	overlay={
+		\node[
+		anchor=north west,
+		yshift=3pt,
+		fill=chapterTeal,
+		text=white,
+		font=\bfseries,
+		rounded corners=2pt,
+		inner xsep=8pt,
+		inner ysep=2pt
+		] at (frame.north west)
+		{\faLightbulb\; \textbf{KIẾN THỨC CẦN NHỚ}};
+	},
+}
+
+% =========================================================
+% MÔI TRƯỜNG GHI NHỚ MỚI DỰA TRÊN GHINHO CŨ
+% =========================================================
+
+\newtcolorbox{ghinhomoi}{
+	colback=kienthucBG,
+	colframe=chapterTeal,
+	boxrule=0.8pt,
+	arc=3pt,
+	left=10pt,
+	right=10pt,
+	top=18pt,
+	bottom=3pt,
+	enhanced,
+	breakable,
+	overlay={
+		\node[
+			anchor=north west,
+			yshift=3pt,
+			fill=chapterTeal,
+			text=white,
+			font=\bfseries,
+			rounded corners=2pt,
+			inner xsep=8pt,
+			inner ysep=2pt
+		] at (frame.north west)
+		{\faLightbulb\; \textbf{Ghi nhớ}};
+	},
+}
+
+% =========================================================
+% CÔNG THỨC nhấn mạnh (tự vào math mode)
+%\congthuc{}
+% =========================================================
+\usepackage{soul} % nếu chưa có
+\usepackage{xcolor}
+
+\newcommand{\congthuc}[1]{%
+	\[
+	\colorbox{yellow!40}{$\displaystyle \textcolor{doDo}{\boldsymbol{#1}}$}
+	\]
+}
+
+% ===== Ô chọn Đúng/Sai =====
+
+
+
+% ===== LỆNH PHẦN TỰ LUẬN 2 CỘT (CỘT TRÁI = 0.6, CỘT PHẢI = 0.35) =====
+% Môi trường 2 cột (trái 60%, phải 35%)
+\NewDocumentCommand{\chiacot}{O{0.6} O{0.35} m m}{
+\noindent
+\begin{minipage}[t]{#1\linewidth}
+\vspace{0pt}
+#3
+\end{minipage}
+\hfill
+\begin{minipage}[t]{#2\linewidth}
+\vspace{0pt}
+#4
+\end{minipage}
+\par
+}
+
+
+%==========VẼ ĐỒNG HỒ=====================
+\newcommand{\donghokim}[2]{%
+	\begin{tikzpicture}[scale=0.9]
+		
+		% mặt đồng hồ
+		\draw[thick, fill=morongBG] (0,0) circle (2);
+		
+		% vạch phút
+		\foreach \m in {0,6,...,354}{
+			\draw[gray!60] ({90-\m}:1.85) -- ({90-\m}:2);
+		}
+		
+		% vạch giờ lớn
+		\foreach \h in {1,...,12}{
+			\draw[line width=1pt] ({90-\h*30}:1.7) -- ({90-\h*30}:2);
+		}
+		
+		% số giờ
+		\foreach \h in {1,...,12}{
+			\node at ({90-\h*30}:1.35) {\small\bfseries \h};
+		}
+		
+		% kim phút
+		\draw[line width=1.2pt, red] (0,0) -- ({90-#2*6}:1.15);
+		
+		% kim giờ
+		\pgfmathsetmacro{\gocgio}{#1*30 + #2*0.5}
+		\draw[line width=2pt, blue!80!black] (0,0) -- ({90-\gocgio}:0.75);
+		
+		% chốt giữa
+		\fill[black] (0,0) circle (2.25pt);
+		
+	\end{tikzpicture}
+}
+%\donghokim{6:GIỜ}{0:PHÚT}
+
+% ===== MÔI TRƯỜNG 2 CỘT TÙY CHỈNH =====
+% #1: độ rộng cột trái (vd 0.6\linewidth)
+% #2: độ rộng cột phải (vd 0.35\linewidth)
+% #3: nội dung cột trái
+% #4: nội dung cột phải
+
+\newenvironment{chia2cot}[4]{%
+	\noindent
+	\begin{minipage}[t]{#1}
+		\vspace{0pt}#3
+	\end{minipage}\hfill
+	\begin{minipage}[t]{#2}
+		\vspace{0pt}#4
+	\end{minipage}\par
+}{}
+\vspace{0.5cm}
+%-----cách dùng-------
+%\begin{chia2cot}{0.4\linewidth}{0.6\linewidth}{}{}
+%\end{chia2cot}
+
+
+%====================================
+% Macro và môi trường Câu mẫu
+% Cách dùng: \caumau{nội dung}
+
+%\begin{mau}
+%\end{mau}
+%====================================
+\newcommand{\caumau}[1]{%
+	{\vspace{0.3cm}
+		\color{violet}\underline{\textbf{\textit{Mẫu:}}}\\[0.3cm] \textit{#1}}%
+}
+
+\newenvironment{mau}
+{%
+	\vspace{0.3cm}
+	\color{violet}%\underline{\textbf{\textit{Mẫu:}}}\\[0.3cm]
+	\itshape
+}
+
+%====================================
+% Macro và môi trường Câu mẫu
+% Cách dùng: \giai{nội dung}
+
+%\begin{giai}
+%\end{giai}
+%====================================
+\newcommand{\baigiai}[1]{%
+	{\vspace{0.3cm}
+		\color{violet}\underline{\textbf{\textit{Giải:}}}\\[0.3cm] \textit{#1}}%
+		\vspace{5mm}
+}
+
+\newenvironment{giai}
+{%
+	\vspace{0.3cm}
+	\color{violet}\underline{\textbf{\textit{Giải:}}}\\[0.3cm]
+	\itshape
+}
+
+%==================================================
+% Môi trường khung NHÁP
+
+% \begin{nhap}{0.6\linewidth}
+	% \end{nhap}
+%==================================================
+
+\usepackage{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+
+\newtcolorbox{nhap}[1]{
+	enhanced,
+	width=#1,
+	colback=green!20!yellow!25,
+	colframe=black,
+	boxrule=0.5pt,
+	arc=5mm,
+	left=8mm,
+	right=8mm,
+	top=13mm, % tăng để tạo khoảng cách
+	bottom=6mm,
+	fontupper=\small, % nội dung chữ nhỏ
+	overlay={
+		
+		% khung nét đứt bên trong
+		\draw[dashed,rounded corners=3mm]
+		([xshift=2mm,yshift=-2mm]frame.north west)
+		rectangle
+		([xshift=-2mm,yshift=2mm]frame.south east);
+		
+		% chữ NHÁP
+		\node[
+		anchor=north,
+		font=\small\bfseries\color{green!50!black}
+		]
+		at ([yshift=-2mm]frame.north)
+		{\uline{Nháp}};
+		
+	}
+}
+ % Macro vẽ hình hỗn số
+\newcommand{\phantron}[3]{%
+\begin{tikzpicture}[baseline=-2pt,scale=0.8]
+
+\def\r{0.8}
+\def\step{2.2}
+\pgfmathsetmacro{\angle}{360/#3}
+
+% ===== phần nguyên =====
+\ifnum#1>0
+\foreach \i in {0,...,\numexpr#1-1\relax}{
+\begin{scope}[shift={(\i*\step,0)}]
+
+% tô hết
+\fill[pink!60] (0,0) circle (\r);
+
+% chia giống mẫu
+\foreach \j in {1,...,#3}{
+\pgfmathsetmacro{\a}{90-(\j-1)*\angle}
+\draw (0,0)--(\a:\r);
+}
+
+\draw[thick] (0,0) circle (\r);
+
+\end{scope}
+}
+\fi
+
+% ===== phần phân số =====
+\ifnum#2>0
+\begin{scope}[shift={(#1*\step,0)}]
+
+\foreach \k in {1,...,#2}{
+\pgfmathsetmacro{\start}{90-(\k-1)*\angle}
+\pgfmathsetmacro{\end}{90-\k*\angle}
+\fill[pink!60] (0,0)--(\start:\r) arc (\start:\end:\r)--cycle;
+}
+
+% vẽ chia
+\foreach \j in {1,...,#3}{
+\pgfmathsetmacro{\a}{90-(\j-1)*\angle}
+\draw (0,0)--(\a:\r);
+}
+
+\draw[thick] (0,0) circle (\r);
+
+\end{scope}
+\fi
+
+\end{tikzpicture}
+}
+
+%================ HÌNH HỌC TIKZ CHO ĐỀ TOÁN =================
+\pgfdeclarelayer{bg}
+\pgfdeclarelayer{top}
+\pgfsetlayers{bg,main,top}
+%----- STYLE CHUNG -----
+
+\tikzset{
+	seg/.style={blue!50!black,line width=0.9pt},
+	segdash/.style={blue!50!black,line width=0.9pt,dashed},
+	pt/.style={circle,draw=black,fill=red,inner sep=0.9pt},
+	circlegeo/.style={green!60!black,line width=0.9pt},
+	anglegeo/.style={green!50!black,line width=0.8pt}
+}
+
+%----- VẼ ĐOẠN THẲNG -----
+
+\newcommand{\doanthang}[2]{
+	\tkzDrawSegments[seg](#1,#2)
+}
+
+%----- VẼ TAM GIÁC -----
+
+\newcommand{\tamgiac}[3]{
+	\tkzDrawSegments[seg](#1,#2 #2,#3 #3,#1)
+}
+
+%----- VẼ ĐIỂM -----
+
+\newcommand{\veDiem}[1]{
+	\tkzDrawPoints[pt](#1)
+}
+
+%----- GHI TÊN ĐIỂM -----
+
+\newcommand{\tenDiem}[2]{
+	\tkzLabelPoints[#1,font=\small](#2)
+}
+
+%----- VẼ ĐƯỜNG TRÒN -----
+
+\newcommand{\veDuongtron}[2]{
+	\draw[circlegeo] (#1) circle (#2);
+}
+
+%----- ĐÁNH DẤU GÓC -----
+
+\newcommand{\danhdaugoc}[3]{
+	{\color{green!50!black}
+	\tkzMarkAngle[size=0.7](#1,#2,#3)
+	}
+}
+
+%----- GẠCH BẰNG NHAU -----
+
+\newcommand{\bangnhauI}[2]{
+	\tkzMarkSegment[mark=|](#1,#2)
+}
+
+\newcommand{\bangnhauII}[2]{
+	\tkzMarkSegment[mark=||](#1,#2)
+}
+
+%----- PHÂN GIÁC -----
+
+\newcommand{\phantgiac}[4]{
+\tkzDefLine[bisector](#1,#2,#3)
+\tkzGetPoint{#4}
+}
+
+%----- TRUNG ĐIỂM -----
+
+\newcommand{\trungdiem}[3]{
+\tkzDefMidPoint(#1,#2)
+\tkzGetPoint{#3}
+}
+
+%===== ĐƯỜNG CAO TAM GIÁC =====
+
+\newcommand{\duongcao}[4]{
+\tkzDefPointBy[projection=onto #2--#3](#1)
+\tkzGetPoint{#4}
+\tkzDrawSegments[seg](#1,#4)
+\tkzMarkRightAngle(#1,#4,#2)
+}
+
+%===== TRỰC TÂM =====
+
+\newcommand{\tructam}[4]{
+\tkzDefPointBy[projection=onto #2--#3](#1)
+\tkzGetPoint{H#1}
+\tkzDefPointBy[projection=onto #1--#3](#2)
+\tkzGetPoint{H#2}
+\tkzInterLL(#1,H#1)(#2,H#2)
+\tkzGetPoint{#4}
+}
+
+%===== ĐƯỜNG KÍNH QUA ĐIỂM TRÊN ĐƯỜNG TRÒN =====
+
+\newcommand{\duongkinh}[3]{
+% #1: tâm
+% #2: điểm trên đường tròn
+% #3: điểm đối diện (sẽ sinh ra)
+
+\tkzDefPointBy[symmetry=center #1](#2)
+\tkzGetPoint{#3}
+
+\tkzDrawSegments[seg](#2,#3)
+}
+
+\newcommand{\loigiai}[1]{%
+\par\noindent\textbf{\textcolor{blue}{Lời giải: }}#1\par
+}
+
+%=======================================
+
+\newenvironment{intro}
+{%
+	\par\medskip
+	\color{violet}
+	\itshape
+}
+{%
+	\par\medskip
+}
+
+%=======================================
+\newenvironment{2cot}{
+	\begin{multicols}{2}
+		\begin{itemize}[label={\small $\bullet$}, leftmargin=1.5cm, itemsep=1em]
+		}{
+		\end{itemize}
+	\end{multicols}
+}
+\newenvironment{3cot}{
+	\begin{multicols}{3}
+		\begin{itemize}[label={\small $\bullet$}, leftmargin=1.5cm, itemsep=1em]
+		}{
+		\end{itemize}
+	\end{multicols}
+}
